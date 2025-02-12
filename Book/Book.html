@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Book.css">
+</head>
+<body>
+    <form id="userForm">
+        <h2>Create Book</h2>
+        <div class="form-group">
+            <label for="title">Title:</label> 
+            <input type="text" id="title" required> <br></br>
+        </div>
+        
+        <div class="form-group">
+            <label for="author">Author:</label> 
+            <input type="text" id="author" required>  <br></br>
+        </div>
+
+        <button type='button' id='submitBtn'>Create Book</button>
+    </form>
+
+    <div>
+        <button type="button" id="displayLibBtn">Display Library</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody id="libraryTableBody"></tbody>
+        </table>
+    </div>
+
+    <script type="module">
+
+        import {addBookToLibrary} from './Books.js';
+
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            addBookToLibrary(title, author)});
+    </script>
+
+</body>
+</html>
